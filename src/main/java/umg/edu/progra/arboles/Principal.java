@@ -33,11 +33,13 @@ public class Principal {
         }
 
         System.out.println("===== Arbol Binario de Busqueda =====");
-        System.out.println("Tamanio: " + arbol.tamanio());
+        System.out.println("Tamanio (campo): " + arbol.tamanio());
+        System.out.println("Tamanio (recursivo): " + arbol.contarNodos());
         System.out.println("Altura:  " + arbol.altura());
         System.out.println("Minimo:  " + arbol.minimo());
         System.out.println("Maximo:  " + arbol.maximo());
         System.out.println("Hojas:   " + arbol.contarHojas());
+
 
         System.out.println("\n--- Representacion visual (rotada 90 grados) ---");
         arbol.imprimirArbol();
@@ -77,7 +79,8 @@ public class Principal {
 
         System.out.println("\n--- Estado final ---");
         arbol.imprimirArbol();
-        System.out.println("Tamanio final: " + arbol.tamanio());
+        System.out.println("Tamanio final (campo): " + arbol.tamanio());
+        System.out.println("Tamanio final (recursivo): " + arbol.contarNodos());
         System.out.println("Altura final:  " + arbol.altura());
 
         /*
