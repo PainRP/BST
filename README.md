@@ -1,10 +1,4 @@
 # Tarea: Árbol Binario de Búsqueda (BST) en Java
-
-**Curso:** Programación 3  
-**Estudiante:** Rafael  
-**Correo:** jpereza62@miumg.edu.gt  
-**Fecha de Entrega:** 1 de Junio de 2026  
-
 ---
 
 ## 1. Descripción del Proyecto
