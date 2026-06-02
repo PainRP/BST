@@ -96,6 +96,20 @@ public class Principal {
         }
         System.out.println("Arbol desbalanceado esta balanceado? " + arbolDesbalanceado.esBalanceado());
 
+        // Problema 3: esBSTValido
+        System.out.println("\n--- Problema 3: Validar que sea un BST ---");
+        System.out.println("Arbol original (actual) es BST valido? " + arbol.esBSTValido());
+
+        System.out.println("Creando un arbol roto manualmente...");
+        ArbolBinarioBusqueda arbolRoto = new ArbolBinarioBusqueda();
+        arbolRoto.insertar(50);
+        arbolRoto.insertar(30);
+        arbolRoto.insertar(70);
+        // Romper la propiedad de BST: colocar un 100 como hijo derecho del 30
+        arbolRoto.getRaiz().izquierdo.derecho = new Nodo(100);
+        System.out.println("Arbol roto es BST valido? " + arbolRoto.esBSTValido());
+
+
 
         /*
          * Ejercicios

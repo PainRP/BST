@@ -233,6 +233,30 @@ public class ArbolBinarioBusqueda {
         return esBalanceadoRecursivo(nodo.izquierdo) && esBalanceadoRecursivo(nodo.derecho);
     }
 
+    /**
+     * Valida si el arbol cumple con la propiedad de un BST.
+     * Todo el subarbol izquierdo debe tener valores menores que la raiz,
+     * y todo el subarbol derecho valores mayores.
+     */
+    public boolean esBSTValido() {
+        return esBSTValidoRecursivo(raiz, null, null);
+    }
+
+    private boolean esBSTValidoRecursivo(Nodo nodo, Integer min, Integer max) {
+        if (nodo == null) {
+            return true;
+        }
+        if (min != null && nodo.dato <= min) {
+            return false;
+        }
+        if (max != null && nodo.dato >= max) {
+            return false;
+        }
+        return esBSTValidoRecursivo(nodo.izquierdo, min, nodo.dato)
+                && esBSTValidoRecursivo(nodo.derecho, nodo.dato, max);
+    }
+
+
 
 
     // ============================================================
