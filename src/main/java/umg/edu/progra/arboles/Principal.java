@@ -125,6 +125,22 @@ public class Principal {
             System.out.println("LCA(10, 99) lanzo excepcion correctamente: " + e.getMessage());
         }
 
+        // Problema 5: invertir
+        System.out.println("\n--- Problema 5: Espejo del arbol (Inversion) ---");
+        System.out.println("Arbol original antes de invertir:");
+        arbolLCA.imprimirArbol();
+        System.out.print("InOrden antes: ");
+        arbolLCA.inOrden();
+
+        System.out.println("Invirtiendo el arbol...");
+        arbolLCA.invertir();
+
+        System.out.println("Arbol despues de invertir:");
+        arbolLCA.imprimirArbol();
+        System.out.print("InOrden despues (deberia estar invertido): ");
+        arbolLCA.inOrden();
+
+
 
 
 

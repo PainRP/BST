@@ -280,6 +280,27 @@ public class ArbolBinarioBusqueda {
         return nodo;
     }
 
+    /**
+     * Invierte el arbol de forma recursiva, produciendo su imagen espejo.
+     * Intercambia el subarbol izquierdo y el subarbol derecho de cada nodo.
+     */
+    public void invertir() {
+        invertirRecursivo(raiz);
+    }
+
+    private void invertirRecursivo(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+        Nodo temp = nodo.izquierdo;
+        nodo.izquierdo = nodo.derecho;
+        nodo.derecho = temp;
+
+        invertirRecursivo(nodo.izquierdo);
+        invertirRecursivo(nodo.derecho);
+    }
+
+
 
 
 
