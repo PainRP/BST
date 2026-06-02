@@ -83,6 +83,20 @@ public class Principal {
         System.out.println("Tamanio final (recursivo): " + arbol.contarNodos());
         System.out.println("Altura final:  " + arbol.altura());
 
+        System.out.println("\n=== Pruebas de Tarea ===");
+
+        // Problema 2: esBalanceado
+        System.out.println("\n--- Problema 2: ¿Esta balanceado? ---");
+        System.out.println("Arbol actual esta balanceado? " + arbol.esBalanceado());
+
+        System.out.println("Creando arbol desbalanceado (insertando 1, 2, 3, 4, 5)...");
+        ArbolBinarioBusqueda arbolDesbalanceado = new ArbolBinarioBusqueda();
+        for (int i = 1; i <= 5; i++) {
+            arbolDesbalanceado.insertar(i);
+        }
+        System.out.println("Arbol desbalanceado esta balanceado? " + arbolDesbalanceado.esBalanceado());
+
+
         /*
          * Ejercicios
          *
