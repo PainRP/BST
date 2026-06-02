@@ -256,6 +256,31 @@ public class ArbolBinarioBusqueda {
                 && esBSTValidoRecursivo(nodo.derecho, nodo.dato, max);
     }
 
+    /**
+     * Devuelve el dato del ancestro comun mas bajo (LCA) entre los valores a y b.
+     * Si alguno de los valores no existe, lanza IllegalArgumentException.
+     */
+    public int ancestroComunMasBajo(int a, int b) {
+        if (!contiene(a) || !contiene(b)) {
+            throw new IllegalArgumentException("Uno o ambos valores no existen en el arbol");
+        }
+        return ancestroComunMasBajoRecursivo(raiz, a, b).dato;
+    }
+
+    private Nodo ancestroComunMasBajoRecursivo(Nodo nodo, int a, int b) {
+        if (nodo == null) {
+            return null;
+        }
+        if (a < nodo.dato && b < nodo.dato) {
+            return ancestroComunMasBajoRecursivo(nodo.izquierdo, a, b);
+        }
+        if (a > nodo.dato && b > nodo.dato) {
+            return ancestroComunMasBajoRecursivo(nodo.derecho, a, b);
+        }
+        return nodo;
+    }
+
+
 
 
 

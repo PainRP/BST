@@ -109,6 +109,23 @@ public class Principal {
         arbolRoto.getRaiz().izquierdo.derecho = new Nodo(100);
         System.out.println("Arbol roto es BST valido? " + arbolRoto.esBSTValido());
 
+        // Problema 4: LCA (Ancestro Comun Mas Bajo)
+        System.out.println("\n--- Problema 4: Ancestro Comun Mas Bajo (LCA) ---");
+        ArbolBinarioBusqueda arbolLCA = new ArbolBinarioBusqueda();
+        int[] valoresLCA = { 50, 30, 70, 20, 40, 60, 80, 10 };
+        for (int v : valoresLCA) {
+            arbolLCA.insertar(v);
+        }
+        System.out.println("LCA(10, 40) = " + arbolLCA.ancestroComunMasBajo(10, 40) + " (Esperado: 30)");
+        System.out.println("LCA(10, 80) = " + arbolLCA.ancestroComunMasBajo(10, 80) + " (Esperado: 50)");
+        System.out.println("LCA(60, 80) = " + arbolLCA.ancestroComunMasBajo(60, 80) + " (Esperado: 70)");
+        try {
+            System.out.println("LCA(10, 99) = " + arbolLCA.ancestroComunMasBajo(10, 99));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LCA(10, 99) lanzo excepcion correctamente: " + e.getMessage());
+        }
+
+
 
 
         /*
