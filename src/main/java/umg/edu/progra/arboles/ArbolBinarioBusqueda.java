@@ -300,6 +300,95 @@ public class ArbolBinarioBusqueda {
         invertirRecursivo(nodo.derecho);
     }
 
+    // ============================================================
+    // EJERCICIOS EXTRA
+    // ============================================================
+
+    private int kEsimoContador;
+    private int kEsimoResultado;
+
+    /**
+     * E1. Devuelve el k-esimo valor mas pequeno del BST usando recorrido InOrden.
+     * k es 1-indexed (k=1 es el minimo).
+     */
+    public int kEsimoMenor(int k) {
+        if (k <= 0 || k > contarNodos()) {
+            throw new IllegalArgumentException("k esta fuera de rango");
+        }
+        kEsimoContador = 0;
+        kEsimoResultado = -1;
+        kEsimoMenorRecursivo(raiz, k);
+        return kEsimoResultado;
+    }
+
+    private void kEsimoMenorRecursivo(Nodo nodo, int k) {
+        if (nodo == null || kEsimoContador >= k) {
+            return;
+        }
+        kEsimoMenorRecursivo(nodo.izquierdo, k);
+
+        kEsimoContador++;
+        if (kEsimoContador == k) {
+            kEsimoResultado = nodo.dato;
+            return;
+        }
+
+        kEsimoMenorRecursivo(nodo.derecho, k);
+    }
+
+    /**
+     * E2. Imprime en orden todos los valores en el rango [min, max]
+     * recorriendo lo menos posible el arbol.
+     */
+    public void imprimirRangoOrdenado(int min, int max) {
+        imprimirRangoOrdenadoRecursivo(raiz, min, max);
+        System.out.println();
+    }
+
+    private void imprimirRangoOrdenadoRecursivo(Nodo nodo, int min, int max) {
+        if (nodo == null) {
+            return;
+        }
+        if (nodo.dato > min) {
+            imprimirRangoOrdenadoRecursivo(nodo.izquierdo, min, max);
+        }
+        if (nodo.dato >= min && nodo.dato <= max) {
+            System.out.print(nodo.dato + " ");
+        }
+        if (nodo.dato < max) {
+            imprimirRangoOrdenadoRecursivo(nodo.derecho, min, max);
+        }
+    }
+
+    private int maxDiametro;
+
+    /**
+     * E3. Devuelve el diametro del arbol (el camino mas largo en aristas
+     * entre dos nodos cualesquiera).
+     */
+    public int diametro() {
+        maxDiametro = 0;
+        calcularAlturaYDiametro(raiz);
+        return maxDiametro;
+    }
+
+    private int calcularAlturaYDiametro(Nodo nodo) {
+        if (nodo == null) {
+            return -1;
+        }
+        int altIzq = calcularAlturaYDiametro(nodo.izquierdo);
+        int altDer = calcularAlturaYDiametro(nodo.derecho);
+
+        int diametroLocal = altIzq + altDer + 2;
+        if (diametroLocal > maxDiametro) {
+            maxDiametro = diametroLocal;
+        }
+
+        return 1 + (altIzq > altDer ? altIzq : altDer);
+    }
+
+
+
 
 
 

@@ -140,6 +140,49 @@ public class Principal {
         System.out.print("InOrden despues (deberia estar invertido): ");
         arbolLCA.inOrden();
 
+        System.out.println("\nRe-invirtiendo para restaurar el BST...");
+        arbolLCA.invertir();
+
+        System.out.println("\n=== Ejercicios Extra ===");
+
+        // E1: k-esimo menor
+        System.out.println("\n--- E1: k-esimo menor ---");
+        System.out.println("1er menor: " + arbolLCA.kEsimoMenor(1) + " (Esperado: 10)");
+        System.out.println("3er menor: " + arbolLCA.kEsimoMenor(3) + " (Esperado: 30)");
+        System.out.println("8vo menor: " + arbolLCA.kEsimoMenor(8) + " (Esperado: 80)");
+
+        // E2: Imprimir rango ordenado
+        System.out.println("\n--- E2: Imprimir rango ordenado ---");
+        System.out.print("Rango [25, 65]: ");
+        arbolLCA.imprimirRangoOrdenado(25, 65); // Esperado: 30 40 50 60
+        System.out.print("Rango [10, 80]: ");
+        arbolLCA.imprimirRangoOrdenado(10, 80); // Esperado: 10 20 30 40 50 60 70 80
+
+        // E3: Diametro
+        System.out.println("\n--- E3: Diametro del arbol ---");
+        System.out.println("Diametro del arbol original: " + arbolLCA.diametro() + " (Esperado: 5 aristas)");
+
+        // E4: Construir BST desde args
+        if (args.length > 0) {
+            System.out.println("\n--- E4: Construyendo BST desde argumentos de consola ---");
+            ArbolBinarioBusqueda arbolArgs = new ArbolBinarioBusqueda();
+            for (String arg : args) {
+                try {
+                    int v = Integer.parseInt(arg);
+                    arbolArgs.insertar(v);
+                } catch (NumberFormatException e) {
+                    System.out.println("Argumento ignorado (no es entero): " + arg);
+                }
+            }
+            System.out.println("Arbol construido desde consola:");
+            arbolArgs.imprimirArbol();
+            System.out.print("Recorrido InOrden: ");
+            arbolArgs.inOrden();
+            System.out.println("Esta balanceado? " + arbolArgs.esBalanceado());
+            System.out.println("Es BST valido? " + arbolArgs.esBSTValido());
+        }
+
+
 
 
 
